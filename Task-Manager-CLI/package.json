@@ -1,0 +1,15 @@
+{
+  "name": "task-manager-cli",
+  "version": "1.0.0",
+  "description": "learning nodejs by building projects",
+  "license": "ISC",
+  "author": "Ramsundar",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "node --watch app.js"
+  },
+  "dependencies": {
+    "yargs": "^18.2.0"
+  }
+}
