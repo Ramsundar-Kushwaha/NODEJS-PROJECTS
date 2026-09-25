@@ -1,0 +1,15 @@
+{
+  "name": "todo-list-cli",
+  "version": "1.0.0",
+  "description": "\"A CLI based TODO-LIST application\"",
+  "license": "ISC",
+  "author": "Ramsundar",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "yargs": "^18.2.0"
+  }
+}
