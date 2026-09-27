@@ -1,4 +1,6 @@
 const fs = require('fs');
+const { type } = require('os');
+const { describe, demandOption } = require('yargs');
 const yargs = require('yargs/yargs');
 const parser = yargs(process.argv.slice(2));
 
@@ -63,10 +65,53 @@ parser.command({
             return;
         }
 
-        console.log('-----Task List-----');
+        console.log('Task List');
         tasks.forEach(task => {
             console.log(`ID: ${task.id}\nDescription: ${task.description}\nStatus: ${task.status}\n\n`);
         });
+    }
+});
+
+// REMOVE TASK
+parser.command({
+    command: "rm",
+    describe: "Remove the task",
+    builder: {
+        id : {
+            describe: "ID of task to remove",
+            demandOption: true,
+            type: 'number'
+        }
+    },
+    handler(argv){
+        const tasks = readList();
+        const removeTask = tasks.filter((task)=> task.id !== argv.id);
+        if(tasks.length == removeTask.length){
+            console.log("Task Not Found!\n");
+            return;
+        }
+        saveList(removeTask);
+        console.log(`Task ${argv.id} removed\n`);
+    }
+});
+
+// MARK DONE
+parser.command({
+    command: "done",
+    describe: "task done",
+    builder: { 
+        id: {
+            describe: " id of the task to remove",
+            demandOption: true,
+            type: 'number'
+        }
+    },
+    handler(argv){
+        const tasks = readList();
+        if (tasks.length === 0){
+            console.log("Empty List\n");
+            return;
+        }
     }
 });
 
