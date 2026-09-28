@@ -1,2 +1,2 @@
-
-add function added
+Go to the gym
+Learn DSA and solve atleast one question on leetcode
